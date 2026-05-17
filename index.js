@@ -1,11 +1,10 @@
 import makeWASocket, {
-  useMultiFileAuthState,
-  fetchLatestBaileysVersion,
-  DisconnectReason
+useMultiFileAuthState,
+fetchLatestBaileysVersion,
+DisconnectReason
 } from "@whiskeysockets/baileys"
 
 import P from "pino"
-import qrcode from "qrcode-terminal"
 
 async function startBot() {
 
@@ -18,7 +17,7 @@ await fetchLatestBaileysVersion()
 const sock = makeWASocket({
 version,
 logger: P({ level: "silent" }),
-printQRInTerminal: true,
+printQRInTerminal: false,
 auth: state,
 browser: ["RELAX-MD", "Chrome", "1.0.0"]
 })
@@ -32,13 +31,23 @@ qr
 }) => {
 
 if (qr) {
-qrcode.generate(qr, { small: true })
-console.log("Scan QR")
+
+console.log(`
+━━━━━━━━━━━━━━━━━━━
+SCAN THIS QR
+━━━━━━━━━━━━━━━━━━━
+
+${qr}
+
+━━━━━━━━━━━━━━━━━━━
+`)
 }
 
 if (connection === "open") {
+
 console.log("✅ RELAX-MD Connected")
 console.log("👑 Owner: ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊")
+
 }
 
 if (connection === "close") {
