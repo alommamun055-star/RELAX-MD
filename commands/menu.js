@@ -3,10 +3,18 @@ name: "menu",
 
 async execute(sock, msg) {
 
-const from = msg.key.remoteJid
+const { cmd } = require("../command");
 
-await sock.sendMessage(from, {
-text: `
+cmd({
+pattern: "menu",
+desc: "Show bot menu",
+category: "menu",
+react: "💗",
+filename: __filename
+},
+async (conn, mek, m, { reply }) => {
+
+return reply(`
 ╔═══━━━─── • ───━━━═══╗
 -----------💗 𝐑𝐄𝐋𝐀𝐗 - 𝐌𝐃 💗-----------
 ╚═══━━━─── • ───━━━═══╝
@@ -47,77 +55,8 @@ text: `
 ┃ ✧ owner
 ╚═══════════════════╝
 
-╔════〔 👥 𝐆ʀᴏᴜᴩ 𝐌ᴇɴᴜ 〕═══╗
-┃ ✧ add
-┃ ✧ admin
-┃ ✧ admins
-┃ ✧ announce
-┃ ✧ antisticker
-┃ ✧ antiword
-┃ ✧ approve
-┃ ✧ close
-┃ ✧ demote
-┃ ✧ tagall
-┃ ✧ goodbye
-┃ ✧ groupstats
-┃ ✧ gstatus
-┃ ✧ hidetag
-┃ ✧ invite
-┃ ✧ inviteuser
-┃ ✧ kick
-┃ ✧ open
-┃ ✧ promote
-┃ ✧ protection
-╚══════════════════╝
-
-╔═════〔 🖼️ 𝐌ᴇᴅɪᴀ 〕═════╗
-┃ ✧ imagehelp
-┃ ✧ imageinfo
-┃ ✧ remini
-┃ ✧ sticker
-┃ ✧ sticker2img
-┃ ✧ toimage
-┃ ✧ video2img
-╚══════════════════╝
-
-╔════〔 🧿 𝐎ᴡɴᴇʀ 𝐌ᴇɴᴜ 〕════╗
-┃ ✧ anticall
-┃ ✧ antilink
-┃ ✧ antistickerk
-┃ ✧ autoreact
-┃ ✧ autoread
-┃ ✧ autorecord
-┃ ✧ autostatus
-┃ ✧ autotyping
-┃ ✧ broadcast
-┃ ✧ del
-┃ ✧ delme
-┃ ✧ forward
-┃ ✧ fwd
-┃ ✧ getbio
-┃ ✧ getname
-┃ ✧ getpp
-┃ ✧ listgc
-┃ ✧ mention
-┃ ✧ mode
-┃ ✧ mystatus
-┃ ✧ private
-┃ ✧ public
-╚═══════════════════╝
-
-╔════〔 👀 𝐕ɪᴇᴡ-𝐎ɴᴄᴇ 〕════╗
-┃ ✧ 😃
-┃ ✧ 😂
-┃ ✧ vv
-┃ ✧ vv2
-╚═══════════════════╝
-
 ╭───────────────◆
 │ 𝐓ʜᴀɴᴋꜱ 𝐅ᴏʀ 𝐔ꜱɪɴɢ 𝐎ᴜʀ 𝐁ᴏᴛ 🕊️
-│ © ᴘᴏᴡᴇʀᴇᴅ ʙʏ - ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊
 ╰───────────────◆
-`
-})
-
-}
-}
+`)
+});
