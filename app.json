@@ -1,0 +1,58 @@
+{
+"name": "RELAX-MD",
+"description": "WhatsApp Bot By ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊",
+"logo": "https://i.ibb.co/Sw4pzTWC/IMG-20260124-WA0728.jpg",
+"keywords": ["bot", "whatsapp", "RELAX-MD"],
+"success_url": "https://whatsapp.com/channel/0029VbCTMVr4tRrrogSVaD0A",
+
+"env": {
+
+"SESSION_ID": {
+  "description": "Put your session id",
+  "required": true
+},
+
+"BOT_NAME": {
+  "description": "Bot name",
+  "required": false,
+  "value": "RELAX-MD"
+},
+
+"OWNER_NAME": {
+  "description": "Owner name",
+  "required": false,
+  "value": "⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊"
+},
+
+"OWNER_NUMBER": {
+  "description": "Owner number",
+  "required": false,
+  "value": "918116539293"
+},
+
+"PREFIX": {
+  "description": "Bot prefix",
+  "required": false,
+  "value": "."
+},
+
+"WELCOME": {
+  "description": "Enable welcome",
+  "required": false,
+  "value": "true"
+},
+
+"ANTI_LINK": {
+  "description": "Enable anti link",
+  "required": false,
+  "value": "true"
+}
+
+},
+
+"buildpacks": [
+{
+"url": "heroku/nodejs"
+}
+]
+}
