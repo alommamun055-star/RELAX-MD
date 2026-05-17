@@ -1,0 +1,123 @@
+export default {
+name: "menu",
+
+async execute(sock, msg) {
+
+const from = msg.key.remoteJid
+
+await sock.sendMessage(from, {
+text: `
+╔═══━━━─── • ───━━━═══╗
+-----------💗 𝐑𝐄𝐋𝐀𝐗 - 𝐌𝐃 💗-----------
+╚═══━━━─── • ───━━━═══╝
+
+╭───────────────◆
+│ ⚡ 𝐌ᴏᴅᴇ : PUBLIC
+│ ⚡ 𝐏ʀᴇꜰɪx : .
+│ ⚡ 𝐎ᴡɴᴇʀ : ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊
+╰───────────────◆
+
+╔═════〔 🧠 𝐀ɪ - 𝐌ᴇɴᴜ 〕════╗
+┃ ✧ gpt
+╚═══════════════════╝
+
+╔════〔 📥 𝐃ᴏᴡɴʟᴏᴀᴅ 〕════╗
+┃ ✧ apk
+┃ ✧ edit
+┃ ✧ fb
+┃ ✧ git
+┃ ✧ gitclone
+┃ ✧ insta
+┃ ✧ mega
+┃ ✧ mp4
+┃ ✧ pint
+┃ ✧ play
+┃ ✧ song
+┃ ✧ video
+┃ ✧ yta
+┃ ✧ ytmp3
+┃ ✧ ytv
+╚══════════════════╝
+
+╔═════〔 ⚙️ 𝐆ᴇɴᴇʀᴀʟ 〕════╗
+┃ ✧ alive
+┃ ✧ ping
+┃ ✧ list
+┃ ✧ menu
+┃ ✧ owner
+╚═══════════════════╝
+
+╔════〔 👥 𝐆ʀᴏᴜᴩ 𝐌ᴇɴᴜ 〕═══╗
+┃ ✧ add
+┃ ✧ admin
+┃ ✧ admins
+┃ ✧ announce
+┃ ✧ antisticker
+┃ ✧ antiword
+┃ ✧ approve
+┃ ✧ close
+┃ ✧ demote
+┃ ✧ tagall
+┃ ✧ goodbye
+┃ ✧ groupstats
+┃ ✧ gstatus
+┃ ✧ hidetag
+┃ ✧ invite
+┃ ✧ inviteuser
+┃ ✧ kick
+┃ ✧ open
+┃ ✧ promote
+┃ ✧ protection
+╚══════════════════╝
+
+╔═════〔 🖼️ 𝐌ᴇᴅɪᴀ 〕═════╗
+┃ ✧ imagehelp
+┃ ✧ imageinfo
+┃ ✧ remini
+┃ ✧ sticker
+┃ ✧ sticker2img
+┃ ✧ toimage
+┃ ✧ video2img
+╚══════════════════╝
+
+╔════〔🧿𝐎ᴡɴᴇʀ 𝐌ᴇɴᴜ 〕════╗
+┃ ✧ anticall
+┃ ✧ antilink
+┃ ✧ antistickerk
+┃ ✧ autoreact
+┃ ✧ autoread
+┃ ✧ autorecord
+┃ ✧ autostatus
+┃ ✧ autotyping
+┃ ✧ broadcast
+┃ ✧ del
+┃ ✧ delme
+┃ ✧ forward
+┃ ✧ fwd
+┃ ✧ getbio
+┃ ✧ getname
+┃ ✧ getpp
+┃ ✧ listgc
+┃ ✧ mention
+┃ ✧ mode
+┃ ✧ mystatus
+┃ ✧ private
+┃ ✧ public
+╚═══════════════════╝
+
+╔════〔 👀 𝐕ɪᴇᴡ-𝐎ɴᴄᴇ 〕════╗
+┃ ✧ 😃
+┃ ✧ 😂
+┃ ✧ vv
+┃ ✧ vv2
+╚═══════════════════╝
+
+╭───────────────◆
+│ 𝐓ʜᴀɴᴋꜱ 𝐅ᴏʀ 𝐔ꜱɪɴɢ 𝐎ᴜʀ 𝐁ᴏᴛ 🕊️
+│ ©ᴩᴏᴡᴇʀᴇᴅ ʙʏ - ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊
+╰───────────────◆
+`
+})
+
+}
+}
