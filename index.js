@@ -5,6 +5,17 @@ DisconnectReason
 } from "@whiskeysockets/baileys"
 
 import P from "pino"
+import express from "express"
+
+const app = express()
+
+app.get("/", (req, res) => {
+res.send("RELAX-MD Running")
+})
+
+app.listen(9090, () => {
+console.log("Server running on port 9090")
+})
 
 async function startBot() {
 
