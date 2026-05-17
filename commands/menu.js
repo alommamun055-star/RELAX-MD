@@ -1,62 +1,13 @@
 export default {
-name: "menu",
 
 async execute(sock, msg) {
 
-const { cmd } = require("../command");
+const from = msg.key.remoteJid
 
-cmd({
-pattern: "menu",
-desc: "Show bot menu",
-category: "menu",
-react: "💗",
-filename: __filename
-},
-async (conn, mek, m, { reply }) => {
+await sock.sendMessage(from, {
+text: "✅ RELAX-MD MENU WORKING 💗"
+})
 
-return reply(`
-╔═══━━━─── • ───━━━═══╗
------------💗 𝐑𝐄𝐋𝐀𝐗 - 𝐌𝐃 💗-----------
-╚═══━━━─── • ───━━━═══╝
+}
 
-╭───────────────◆
-│ ⚡ 𝐌ᴏᴅᴇ : PUBLIC
-│ ⚡ 𝐏ʀᴇꜰɪx : .
-│ ⚡ 𝐎ᴡɴᴇʀ : ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊
-╰───────────────◆
-
-╔═════〔 🧠 𝐀ɪ - 𝐌ᴇɴᴜ 〕════╗
-┃ ✧ gpt
-╚═══════════════════╝
-
-╔════〔 📥 𝐃ᴏᴡɴʟᴏᴀᴅ 〕════╗
-┃ ✧ apk
-┃ ✧ edit
-┃ ✧ fb
-┃ ✧ git
-┃ ✧ gitclone
-┃ ✧ insta
-┃ ✧ mega
-┃ ✧ mp4
-┃ ✧ pint
-┃ ✧ play
-┃ ✧ song
-┃ ✧ video
-┃ ✧ yta
-┃ ✧ ytmp3
-┃ ✧ ytv
-╚══════════════════╝
-
-╔═════〔 ⚙️ 𝐆ᴇɴᴇʀᴀʟ 〕════╗
-┃ ✧ alive
-┃ ✧ ping
-┃ ✧ list
-┃ ✧ menu
-┃ ✧ owner
-╚═══════════════════╝
-
-╭───────────────◆
-│ 𝐓ʜᴀɴᴋꜱ 𝐅ᴏʀ 𝐔ꜱɪɴɢ 𝐎ᴜʀ 𝐁ᴏᴛ 🕊️
-╰───────────────◆
-`)
-});
+}
