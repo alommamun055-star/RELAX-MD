@@ -6,20 +6,10 @@ DisconnectReason
 } = require("@whiskeysockets/baileys")
 
 const P = require("pino")
-const readline = require("readline")
+const qrcode = require("qrcode-terminal")
 
-const rl = readline.createInterface({
-input: process.stdin,
-output: process.stdout
-})
+async function startBot() {
 
-async function question(text) {
-return new Promise((resolve) => {
-rl.question(text, resolve)
-})
-}
-
-async function start() {
 const { state, saveCreds } =
 await useMultiFileAuthState("./session")
 
@@ -29,32 +19,40 @@ await fetchLatestBaileysVersion()
 const sock = makeWASocket({
 version,
 logger: P({ level: "silent" }),
+printQRInTerminal: true,
 auth: state,
 browser: ["RELAX-MD", "Chrome", "1.0.0"]
 })
 
 sock.ev.on("creds.update", saveCreds)
 
-if (!sock.authState.creds.registered) {
-const number = await question("Enter your WhatsApp number: ")
-const code = await sock.requestPairingCode(number)
-console.log(`\nYour Pairing Code: ${code}\n`)
+sock.ev.on("connection.update", async ({
+connection,
+lastDisconnect,
+qr
+}) => {
+
+if (qr) {
+qrcode.generate(qr, { small: true })
+console.log("Scan QR")
 }
 
-sock.ev.on("connection.update", async ({ connection, lastDisconnect }) => {
 if (connection === "open") {
-console.log("✅ WhatsApp Connected")
+console.log("✅ RELAX-MD Connected")
+console.log("👑 Owner: ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊")
 }
 
 if (connection === "close") {
+
 const shouldReconnect =
-lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut
+lastDisconnect?.error?.output?.statusCode
+!== DisconnectReason.loggedOut
 
 if (shouldReconnect) {
-start()
+startBot()
 }
 }
 })
 }
 
-start()
+startBot()
