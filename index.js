@@ -1,12 +1,11 @@
-const {
-default: makeWASocket,
-useMultiFileAuthState,
-fetchLatestBaileysVersion,
-DisconnectReason
-} = require("@whiskeysockets/baileys")
+import makeWASocket, {
+  useMultiFileAuthState,
+  fetchLatestBaileysVersion,
+  DisconnectReason
+} from "@whiskeysockets/baileys"
 
-const P = require("pino")
-const qrcode = require("qrcode-terminal")
+import P from "pino"
+import qrcode from "qrcode-terminal"
 
 async function startBot() {
 
