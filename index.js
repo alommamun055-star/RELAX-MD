@@ -17,31 +17,17 @@ await fetchLatestBaileysVersion()
 const sock = makeWASocket({
 version,
 logger: P({ level: "silent" }),
-printQRInTerminal: false,
 auth: state,
-browser: ["RELAX-MD", "Chrome", "1.0.0"]
+browser: ["RELAX-MD", "Chrome", "1.0.0"],
+syncFullHistory: false
 })
 
 sock.ev.on("creds.update", saveCreds)
 
 sock.ev.on("connection.update", async ({
 connection,
-lastDisconnect,
-qr
+lastDisconnect
 }) => {
-
-if (qr) {
-
-console.log(`
-━━━━━━━━━━━━━━━━━━━
-SCAN THIS QR
-━━━━━━━━━━━━━━━━━━━
-
-${qr}
-
-━━━━━━━━━━━━━━━━━━━
-`)
-}
 
 if (connection === "open") {
 
