@@ -1,6 +1,8 @@
+// RELAX-MD
+
 build:
 docker:
-worker: Dockerfile
+worker: DockerFile
 
 run:
-worker: npm start
+worker: npm install -g pm2 && npm start
