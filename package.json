@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "WhatsApp Bot By ⤹𝐗 𝐑𝐎𝐌𝐄𝐎𓂃༊",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
