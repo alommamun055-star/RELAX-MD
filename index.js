@@ -6,6 +6,7 @@ import makeWASocket, {
 
 import P from "pino"
 import http from "http"
+import fs from "fs"
 
 async function startBot() {
 
@@ -16,6 +17,11 @@ async function startBot() {
   })
 
   server.listen(process.env.PORT || 3000)
+
+  // load commands
+  fs.readdirSync("./commands").forEach(async (file) => {
+    await import(`./commands/${file}`)
+  })
 
   const { state, saveCreds } =
     await useMultiFileAuthState("./session")
@@ -31,6 +37,29 @@ async function startBot() {
   })
 
   sock.ev.on("creds.update", saveCreds)
+
+  sock.ev.on("messages.upsert", async ({ messages }) => {
+
+    const msg = messages[0]
+
+    if (!msg.message) return
+
+    const text =
+      msg.message.conversation ||
+      msg.message.extendedTextMessage?.text ||
+      ""
+
+    // MENU COMMAND
+    if (text === ".menu") {
+
+      const command =
+        await import("./commands/menu.js")
+
+      command.default.execute(sock, msg)
+
+    }
+
+  })
 
   sock.ev.on("connection.update", async ({
     connection,
